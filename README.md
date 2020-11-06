@@ -2,9 +2,8 @@
 Information tagging and Content Summarizer
 
 ## Installation
-1. The EndpointAPIs folder contains the node js code. So go to the EndpointAPIs folder on command line and use the command,
+1. The EndpointAPIs folder contains the node js code. So go to the EndpointAPIs folder on command line and use the following command to install all the required node modules/dependencies,
    > npm install
-   This will install all the node modules.
    
 ## Run on local
 1. To run the node application, use the command
