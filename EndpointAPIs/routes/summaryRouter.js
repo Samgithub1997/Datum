@@ -40,8 +40,8 @@ summaryRouter.route("/")
       res.setHeader("Content-Type", "application/json");
       console.log("Summary created: ", summaryJson);
       res.json(summaryJson);
-  }, (err) => next(err))
-  .catch((err) => next(err));
+    }, (err) => next(err))
+    .catch((err) => next(err));
   })
   .catch((err) => {next(err)});
 })
