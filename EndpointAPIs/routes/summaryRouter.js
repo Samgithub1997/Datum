@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
 const Summary = require("../models/summary");
+const axios = require("axios");
 
 var summaryRouter = express.Router();
 
@@ -22,19 +23,27 @@ summaryRouter.route("/")
 })
 .post((req, res, next) => {
   var summary_content = "This is summary of article";
-  Summary.create({
-    user_id: req.body.user_id,
-    url : req.body.url,
-    content: req.body.content,
-    summary: summary_content
-  })
-  .then((summary) => {
+  axios.post('http://127.0.0.1:5000/resp', { req: req.body.content })
+    .then((response) => {
+    //console.log(response);
+    summary_content = response.data.resp;
+    
+    // Create Summary
+    Summary.create({
+      user_id: req.body.user_id,
+      url : req.body.url,
+      content: req.body.content,
+      summary: summary_content
+    })
+    .then((summaryJson) => {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
-      console.log("Summary created: ", summary);
-      res.json(summary);
+      console.log("Summary created: ", summaryJson);
+      res.json(summaryJson);
   }, (err) => next(err))
   .catch((err) => next(err));
+  })
+  .catch((err) => {next(err)});
 })
 .put((req, res, next) => {
   res.statusode = 403;
