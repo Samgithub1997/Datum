@@ -34,8 +34,7 @@ summaryRouter.route("/")
       url : req.body.url,
       content: req.body.content,
       summary: summary_content
-    })
-    .then((summaryJson) => {
+    }, (summaryJson) => {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
       console.log("Summary created: ", summaryJson);
