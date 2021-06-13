@@ -1,5 +1,5 @@
-# Datum
-Information tagging and Content Summarizer (Node JS, Python)
+# Datum : Information tagging and Content Summarizer
+NodeJs, Python
 
 ## Installation
 1. The EndpointAPIs folder contains the node js code (EndpointAPIs folder). So go to the EndpointAPIs folder on command line and use the following command to install all the required node modules/dependencies,
